@@ -43,6 +43,56 @@
 
 
         }
+        function getDates() {
+
+
+            var today = new Date();
+
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+
+            // today = yyyy + '/' + mm + '/' + dd;
+            today = yyyy + '-' + mm + '-' + dd;
+
+            console.log(today);
+            document.getElementById('validationCustom08').value = today;
+
+
+        }
+       
+        function cheakoutdate()
+        {
+
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd
+            }
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            
+            today = yyyy + '-' + mm + '-' + dd;
+            document.getElementById("validationCustom09").setAttribute("min", today);
+        }
+
+
+        window.onload = function () {
+
+            getDates();
+           
+        };
 
 
 
@@ -135,38 +185,28 @@
             </div>
             <div class="col-md-3">
                 <label for="validationCustom05" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="validationCustom05" required>
-                <div class="invalid-feedback">
-                    Please provide a valid zip.
-                </div>
+                <input type="text" class="form-control" id="validationCustom05">
+               
             </div>
             <div class="col-md-3">
                 <label for="validationCustom05" class="form-label">your Destination</label>
-                <input type="text" class="form-control" id="validationCustom06" required>
-                <div class="invalid-feedback">
-                    Please provide a valid name.
-                </div>
+                <input type="text" class="form-control" id="validationCustom06">
+                
             </div>
             <div class="col-md-3">
                 <label for="validationCustom05" class="form-label">Total Passengers</label>
-                <input type="text" class="form-control" id="validationCustom07" required>
-                <div class="invalid-feedback">
-                    Please provide a valid name.
-                </div>
+                <input type="text" class="form-control" id="validationCustom07">
+               
             </div>
             <div class="col-md-3">
                 <label for="validationCustom05" class="form-label">Cheak in Date</label>
-                <input type="date" class="form-control" id="validationCustom08" required>
-                <div class="invalid-feedback">
-                    Please provide a valid name.
-                </div>
+                <input type="date" class="form-control" id="validationCustom08">
+                
             </div>
             <div class="col-md-3">
                 <label for="validationCustom05" class="form-label">Cheak out Date</label>
-                <input type="date" class="form-control" id="validationCustom09" required>
-                <div class="invalid-feedback">
-                    Please provide a valid name.
-                </div>
+                <input type="date" class="form-control" id="validationCustom09" min='1899-01-01' max='2000-13-13' onclick="cheakoutdate()">
+              
             </div>
             <div class="col-12">
                 <div class="form-check">
