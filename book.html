@@ -107,7 +107,7 @@
             <div class="col-md-3">
                 <label for="validationCustom05" class="form-label">Cheak out Date</label>
                 <input type="date" class="form-control" id="validationCustom09" min='1899-01-01' max='2000-13-13'
-                    oninput="order()">
+                    >
 
             </div>
             <div class="col-12">
@@ -213,6 +213,17 @@
                 // Respond to the result
                 alert("please agree with our terms and condition");
                 return false;
+            }
+             order();
+            function order() {
+
+                var g1 = document.getElementById("validationCustom08").value;
+                var g2 = document.getElementById("validationCustom09").value;
+                if (g1 >= g2) {
+
+                    alert("check out date cannot be erlier or same than check in date");
+                    return false;
+                }
             }
 
 
